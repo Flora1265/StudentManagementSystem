@@ -140,6 +140,18 @@ void SearchStudent(int ID){
     cout<< " book not found. "  << endl;
 }
 
+void changeStudentStatus(int ID,bool active){
+
+    for(int i = 0 ; i < students.size(); i ++){
+        if(students[i].getID() == ID ){
+            students[i].changeStatus( active);
+
+            return;
+        }
+
+}
+}
+
 void displayStudents(){
     for(int i = 0 ; i< students.size() ; i++){
 
@@ -151,18 +163,19 @@ void displayStudents(){
 };
 
 int main(){
-    student student1(2,333,"Flora","active");
-    student student2(4,1265,"HIRWA","active");
+student student1(2,333,"Flora","active");
+student student2(4,1265,"HIRWA","active");
+
+school Myschool;
     
-    school Myschool;
-    Myschool.addStudent(student1);
-    Myschool.addStudent(student2);
-    Myschool.displayStudents();
 
+Myschool.addStudent(student1);
+Myschool.addStudent(student2);
 
-    student1.changeStatus(false);
-    student2.updateGrade(true);
+Myschool.displayStudents();
 
-    Myschool.displayStudents();
+Myschool.changeStudentStatus(333, false);
+
+Myschool.displayStudents();
 
 }
