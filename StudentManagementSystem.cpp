@@ -139,6 +139,19 @@ void SearchStudent(int ID){
     }
     cout<< " book not found. "  << endl;
 }
+string updateStudentGrade(bool pass, int ID)
+{
+    for(int i = 0; i < students.size(); i++)
+    {
+        if(students[i].getID() == ID)
+        {
+            return students[i].updateGrade(pass);
+        }
+    }
+
+    return "student not found";
+}
+
 
 void changeStudentStatus(int ID,bool active){
 
@@ -176,6 +189,8 @@ Myschool.displayStudents();
 
 Myschool.changeStudentStatus(333, false);
 
+Myschool.displayStudents();
+cout << Myschool.updateStudentGrade(true, 1265) << endl;
 Myschool.displayStudents();
 
 }
